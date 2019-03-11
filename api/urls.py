@@ -5,5 +5,5 @@ router = routers.SimpleRouter()
 
 urlpatterns = router.urls
 urlpatterns += [
-    path('')
+    # path('',)
 ]

@@ -1,6 +1,9 @@
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
+import os
+
+
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
@@ -10,7 +13,7 @@ parameters = {
 }
 headers = {
   'Accepts': 'application/json',
-  '65070267-2caa-49e9-8a04-19cda7bce29a': 'b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c',
+  'X-CMC_PRO_API_KEY': os.environ.get('X-CMC_PRO_API_KEY'),
 }
 
 session = Session()
