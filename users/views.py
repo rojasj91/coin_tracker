@@ -16,12 +16,18 @@ class SignupView(CreateView):
     form_class = SignupForm
 
     def form_valid(self, form):
+        response = super().form_valid(form)
 
         # Authenticate the user checks provided password against the hash
-        user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+        user = authenticate(
+            username=form.cleaned_data['email'],
+            password=form.cleaned_data['password']
+        )
 
         # Login the user (does the session table/cookie stuff)
         login(self.request, user)
+
+        return response
 
 
 

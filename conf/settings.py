@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'users.User'
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbName',
+        'NAME': 'coin_tracker',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': '127.0.0.1',
