@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.contrib.auth import get_user_model, authenticate, login
 from django.urls import reverse_lazy
 
 from .forms import SignupForm
+
+from .models import Avatar
 
 
 User = get_user_model()
@@ -30,4 +32,14 @@ class SignupView(CreateView):
         return response
 
 
+class ImageView(TemplateView):
+    template_name = "profile.html"
 
+    def get_context_data(self, **kwargs):
+        images = Avatar.objects.all()
+
+        context = {
+            'images': images
+        }
+
+        return context

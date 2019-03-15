@@ -12,3 +12,9 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['phone_number', 'date_of_birth', 'name']
 
     objects = UserManager()
+
+
+class Avatar(models.Model):
+    title = models.CharField(max_length=255)
+    picture = models.URLField()
+

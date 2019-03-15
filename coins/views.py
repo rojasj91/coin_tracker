@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from rest_framework.views import View
 
-# Create your views here.
+class CoinLatest(View):
+    def get(self, request):
+        return 'api_called'
