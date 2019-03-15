@@ -25,10 +25,12 @@ SECRET_KEY = '2rgo2$etpt-iprl2a)h7wmruq(rpnqi4u&(o+6n4zez+7t+45x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '.herokuapp.com',
+]
 
 AUTH_USER_MODEL = 'users.User'
-
 
 
 # Application definition
@@ -60,6 +62,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'conf.urls'
 
+# See: https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = 'dans-awesome-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None  # Default will be to lock down everything
+# AWS_QUERYSTRING_AUTH
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -82,16 +94,24 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'coin_tracker',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+if os.environ['DATABASE_URL']:
+    import dj_database_url
+
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ['DATABASE_URL'])
     }
-}
+
+else:
+    DATABASES = {
+             'default': {
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                'NAME': 'coin_tracker',
+                'USER': 'postgres',
+                'PASSWORD': 'postgres',
+                'HOST': '127.0.0.1',
+                'PORT': '5432',
+            }
+    }
 
 
 # Password validation
