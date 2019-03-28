@@ -31,3 +31,103 @@
     transform: rotate(360deg);
   }
 }
+
+/*.backdrop {*/
+  /*background-color: whitesmoke;*/
+  /*width: 100%;*/
+  /*height: 10px;*/
+  /*border-top: 60px solid darkred;*/
+  /*border-left: 700px solid darkred;*/
+  /*border-bottom: 60px solid darkred;*/
+  /*position: relative;*/
+/*}*/
+
+.heading{
+  font-weight: bolder;
+  color: #D7A100;
+  text-transform: uppercase;
+  font-family: 'Major Mono Display', monospace;
+  background-color: navy;
+  height: 200px;
+
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+.justify-content-end{
+  background: whitesmoke;
+  font-family: 'Major Mono Display', monospace;
+  text-transform: uppercase;
+}
+
+.nav-link .active{
+  color: #163B48;
+
+}
+
+.backdrop{
+  background-color: #163B48;
+  position: relative;
+  height: 200px;
+}
+
+.bg-light{
+  background-color: whitesmoke;
+}
+
+.btn-outline-primary{
+  color: #163B48;
+  border-color: #163B48;
+}
+
+.btn-outline-primary:hover{
+  background-color: #163B48;
+  color: whitesmoke;
+}
+
+.username{
+  color: whitesmoke;
+  text-align: left;
+  margin-left: 181px;
+  padding: 10px;
+}
+
+
+li{
+  list-style-type: none;
+  font-family: 'Major Mono Display', monospace;
+
+}
+
+.crypto-data{
+  text-align: center;
+  margin-top: -50px;
+  margin-left: 100px;
+}
+
+.card{
+  margin-bottom: 12px;
+  align-items: center;
+  box-shadow: 2px 2px lightgray;
+}
+
+Table{
+  margin-left: 10%;
+  background-color: white;
+  color: #393A87;
+}
+
+.table{
+  color: #000530;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: 2px solid lightgray;
+  margin-bottom: 5px;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.table:hover{
+  opacity: 1.0;
+}

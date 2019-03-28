@@ -1,21 +1,10 @@
-import requests
-from api import coinmarketcap
+from django.db import models
 
-#add ListView
-
-api = coinmarketcap
-raw_data = requests.get(api).json()
-data = raw_data['data']
+from users.models import User
 
 
-class CoinTracker:
-
-    for currency in data:
-
-        name = data[currency]['name']
-        price = data[currency]['quotes']['USD']['price']
-        change_1h = data[currency]['quotes']['USD']['percent_change_1h']
-        change_24h = data[currency]['quotes']['USD']['percent_change_24h']
-        change_7d = data[currency]['quotes']['USD']['percent_change_7d']
-
-
+class Alert(models.Model):
+    low_alert = models.IntegerField()
+    high_alert = models.IntegerField()
+    currency_id = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='alerts')

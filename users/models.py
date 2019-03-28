@@ -8,13 +8,8 @@ class User(AbstractBaseUser):
     email = models.EmailField('email address', unique=True)
     date_of_birth = models.DateField()
     phone_number = models.CharField(max_length=10)
+    avatar = models.ImageField()
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['phone_number', 'date_of_birth', 'name']
+    REQUIRED_FIELDS = ['phone_number', 'date_of_birth', 'name', 'avatar']
 
     objects = UserManager()
-
-
-class Avatar(models.Model):
-    title = models.CharField(max_length=255)
-    picture = models.URLField()
-

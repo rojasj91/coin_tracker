@@ -26,6 +26,7 @@ SECRET_KEY = '2rgo2$etpt-iprl2a)h7wmruq(rpnqi4u&(o+6n4zez+7t+45x'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'localhost',
     '.herokuapp.com',
 ]
@@ -63,12 +64,12 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'conf.urls'
 
 # See: https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#settings
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = 'dans-awesome-bucket'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None  # Default will be to lock down everything
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+# AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+# AWS_STORAGE_BUCKET_NAME = 'dans-awesome-bucket'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None  # Default will be to lock down everything
 # AWS_QUERYSTRING_AUTH
 
 
@@ -164,3 +165,11 @@ STATICFILES_FINDERS = [
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend/static/build/static'),
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

@@ -13,6 +13,7 @@ psycopg2 = "*"
 gunicorn = "*"
 whitenoise = "*"
 dj-database-url = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
