@@ -133,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = '/coins/'
+LOGIN_REDIRECT_URL = '/dashboard/'
 
 
 # Internationalization
