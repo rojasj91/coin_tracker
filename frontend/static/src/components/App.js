@@ -4,15 +4,6 @@ import Alert from './Alerts'
 
 import {Table, Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
 
-// import {Nav} from "react-bootstrap";
-//
-// import {Navbar} from "react-bootstrap";
-//
-// import {Form} from "react-bootstrap";
-//
-// import {FormControl} from "react-bootstrap";
-//
-// import {Button} from "react-bootstrap";
 
 
 import '../App.css';
@@ -88,7 +79,7 @@ class App extends Component {
         return (
             <div className="App">
                 {/*<h1 className={'heading'}>Coin Tracker</h1>*/}
-                <div className={'backdrop'}>
+
                     <Navbar bg="light" variant="light">
                         <Navbar.Brand href="#home">Coin Tracker</Navbar.Brand>
                         <Nav className="mr-auto">
@@ -102,7 +93,7 @@ class App extends Component {
                         </Form>
                     </Navbar>
 
-                </div>
+
 
 
                 <div className={"crypto-data col-md-8"}>
@@ -121,7 +112,7 @@ class App extends Component {
                         </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody className={'rows'}>
                         {rows}
                         </tbody>
                     </Table>
