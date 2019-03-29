@@ -12,6 +12,7 @@ User = get_user_model()
 class SignupView(CreateView):
     template_name = 'signup.html'
     model = User
+    success_url = reverse_lazy('dashboard')
 
     form_class = SignupForm
 
@@ -21,7 +22,7 @@ class SignupView(CreateView):
         # Authenticate the user checks provided password against the hash
         user = authenticate(
             username=form.cleaned_data['email'],
-            password=form.cleaned_data['password']
+            password=form.cleaned_data['password1']
         )
 
         # Login the user (does the session table/cookie stuff)
